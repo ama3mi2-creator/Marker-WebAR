@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://cdn.jsdelivr.net/npm/aframe@1.5.0/dist/aframe.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/ar.js@3.4.2/aframe/build/aframe-ar.min.js'></script>
+    <style>body { margin:0; overflow:hidden; }</style>
+  </head>
+  <body>
+    <a-scene embedded arjs='sourceType: webcam;'>
+      <a-marker type='pattern' url='marker.patt'>
+        <a-image src='character.png' position='0 0.5 0' rotation='-90 0 0' scale='1 1 1'></a-image>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
