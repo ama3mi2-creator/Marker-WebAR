@@ -1,17 +1,20 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script src='https://cdn.jsdelivr.net/npm/aframe@1.5.0/dist/aframe.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/npm/ar.js@3.4.2/aframe/build/aframe-ar.min.js'></script>
-    <style>body { margin:0; overflow:hidden; }</style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marker WebAR (HIRO preset)</title>
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.5.0/dist/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.2/aframe/build/aframe-ar.min.js"></script>
+    <style>body{margin:0;overflow:hidden} .hint{position:fixed;left:8px;top:8px;background:rgba(0,0,0,.6);color:#fff;padding:6px 8px;border-radius:6px;font:14px/1.4 -apple-system,system-ui,Segoe UI,Roboto,Helvetica,Arial}</style>
   </head>
   <body>
-    <a-scene embedded arjs='sourceType: webcam;'>
-      <a-marker type='pattern' url='marker.patt'>
-        <a-image src='character.png' position='0 0.5 0' rotation='-90 0 0' scale='1 1 1'></a-image>
+    <div class="hint">印刷した <b>HIRO マーカー</b> にかざしてください</div>
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" vr-mode-ui="enabled: false">
+      <!-- HIRO プリセットを使うため、pattファイルは不要 -->
+      <a-marker preset="hiro">
+        <a-image id="char" src="character.png" position="0 0.5 0" rotation="-90 0 0" scale="1 1 1"
+                 animation="property=position; dir=alternate; dur=1200; easing=easeInOutSine; loop=true; to: 0 0.58 0"></a-image>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
